@@ -18,11 +18,18 @@ https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/
 import os
 import sys
 
+# Add your project directory to the Python path
 path = '/home/robel783/my_project783'
 if path not in sys.path:
     sys.path.append(path)
 
+# Set Django settings module
 os.environ['DJANGO_SETTINGS_MODULE'] = 'my_project783.settings'
+
+# Activate virtualenv
+activate_this = '/home/robel783/my_project783/venv/bin/activate_this.py'
+with open(activate_this) as f:
+    exec(f.read(), dict(__file__=activate_this))
 
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
