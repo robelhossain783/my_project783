@@ -7,10 +7,22 @@ For more information on this file, see
 https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/
 """
 
+# import os
+#
+# from django.core.wsgi import get_wsgi_application
+#
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'my_project783.settings')
+#
+# application = get_wsgi_application()
+
 import os
+import sys
+
+path = '/home/yourusername/my_project783'
+if path not in sys.path:
+    sys.path.append(path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'my_project783.settings'
 
 from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'my_project783.settings')
-
 application = get_wsgi_application()
